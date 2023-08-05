@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+    <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <title>General Search Results - Bootdey.com</title>
+
+     <!-- Icons font CSS-->
+     <link href="../assets/vendor4/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+     <link href="../assets/vendor4/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+     <!-- Font special for pages-->
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+     <!-- Vendor CSS-->
+     <link href="../assets/vendor4/select2/select2.min.css" rel="stylesheet" media="all">
+     <link href="../assets/vendor4/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+ 
+     <!-- Main CSS-->
+     <link href="../assets/css4/main.css" rel="stylesheet" media="all">
+     <style>
+         .message{
+             text-align: center;
+             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+             font-weight: bolder;
+         }
+     </style>
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="row">
+            <div class="col-lg-12 card-margin">
+                <div class="card search-form">
+                    <div class="card-body p-0">
+                        <form id="search-form" method="post" action="/searchstudent3">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row no-gutters">
+                                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                            <select class="form-control" id="exampleFormControlSelect1" name="filter">
+                                                <option value=""></option>
+                                                <option value="Roll">Roll Number</option>
+                                                <option value="Class">Class</option>
+                                                <option value="Name">Name</option>
+                                                <option value="Gender">Gender</option>
+                                                <option value="Blood">Blood Groum</option>
+                                                <option value="Email">Email</option>
+                                                
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-8 col-md-6 col-sm-12 p-0">
+                                            <input type="text" placeholder="Search..." class="form-control" id="search" name="search" required="true">
+                                        </div>
+                                        <div class="col-lg-1 col-md-3 col-sm-12 p-0">
+                                            <button type="submit" class="btn btn-base">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper wrapper--w790">
+          <% try{ %>
+            <% for(let i=0;i<result.length;i++){ %>
+            <div class="card card-5 mb-5">
+                <div class="card-body mb-5 pb-5">
+                   
+
+                    <form name="updateform" method="post" action="/manageattendance">
+                        <div class="form-row">
+                            <div class="name">Name</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="name" id="name"  value="<%= result[i].Name %>">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Roll</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="roll"  value="<%= result[i].Roll %>">
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Class</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="class" value="<%= result[i].Class %>">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <ul style="display: flex; gap: 200px; margin-left: 100px; list-style-type: none;">
+                                <li><button class="btn btn--radius-2 btn--red" type="submit">MANAGE ATTENDANCE</button></li>
+                            </ul>
+                            
+                        </div>
+                   
+                    </form>
+                </div>
+              </div>
+              <% } %>
+            <% } catch(e) { %>
+              <%= e %>
+            <% } %>
+        </div>
+    </div>
+    <style type="text/css">
+        body{
+            background:#dcdcdc;
+            margin-top:20px;}
+        
+        .widget-26 {
+          color: #3c4142;
+          font-weight: 400;
+        }
+        
+        .widget-26 tr:first-child td {
+          border: 0;
+        }
+        
+        .widget-26 .widget-26-job-emp-img img {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+        }
+        
+        .widget-26 .widget-26-job-title {
+          min-width: 200px;
+        }
+        
+        .widget-26 .widget-26-job-title a {
+          font-weight: 400;
+          font-size: 0.875rem;
+          color: #3c4142;
+          line-height: 1.5;
+        }
+        
+        .widget-26 .widget-26-job-title a:hover {
+          color: #68CBD7;
+          text-decoration: none;
+        }
+        
+        .widget-26 .widget-26-job-title .employer-name {
+          margin: 0;
+          line-height: 1.5;
+          font-weight: 400;
+          color: #3c4142;
+          font-size: 0.8125rem;
+          color: #3c4142;
+        }
+        
+        .widget-26 .widget-26-job-title .employer-name:hover {
+          color: #68CBD7;
+          text-decoration: none;
+        }
+        
+        .widget-26 .widget-26-job-title .time {
+          font-size: 12px;
+          font-weight: 400;
+        }
+        
+        .widget-26 .widget-26-job-info {
+          min-width: 100px;
+          font-weight: 400;
+        }
+        
+        .widget-26 .widget-26-job-info p {
+          line-height: 1.5;
+          color: #3c4142;
+          font-size: 0.8125rem;
+        }
+        
+        .widget-26 .widget-26-job-info .location {
+          color: #3c4142;
+        }
+        
+        .widget-26 .widget-26-job-salary {
+          min-width: 70px;
+          font-weight: 400;
+          color: #3c4142;
+          font-size: 0.8125rem;
+        }
+        
+        .widget-26 .widget-26-job-category {
+          padding: .5rem;
+          display: inline-flex;
+          white-space: nowrap;
+          border-radius: 15px;
+        }
+        
+        .widget-26 .widget-26-job-category .indicator {
+          width: 13px;
+          height: 13px;
+          margin-right: .5rem;
+          float: left;
+          border-radius: 50%;
+        }
+        
+        .widget-26 .widget-26-job-category span {
+          font-size: 0.8125rem;
+          color: #3c4142;
+          font-weight: 600;
+        }
+        
+        .widget-26 .widget-26-job-starred svg {
+          width: 20px;
+          height: 20px;
+          color: #fd8b2c;
+        }
+        
+        .widget-26 .widget-26-job-starred svg.starred {
+          fill: #fd8b2c;
+        }
+        .bg-soft-base {
+          background-color: #e1f5f7;
+        }
+        .bg-soft-warning {
+            background-color: #fff4e1;
+        }
+        .bg-soft-success {
+            background-color: #d1f6f2;
+        }
+        .bg-soft-danger {
+            background-color: #fedce0;
+        }
+        .bg-soft-info {
+            background-color: #d7efff;
+        }
+        
+        
+        .search-form {
+          width: 80%;
+          margin: 0 auto;
+          margin-top: 1rem;
+        }
+        
+        .search-form input {
+          height: 100%;
+          background: transparent;
+          border: 0;
+          display: block;
+          width: 100%;
+          padding: 1rem;
+          height: 100%;
+          font-size: 1rem;
+        }
+        
+        .search-form select {
+          background: transparent;
+          border: 0;
+          padding: 1rem;
+          height: 100%;
+          font-size: 1rem;
+        }
+        
+        .search-form select:focus {
+          border: 0;
+        }
+        
+        .search-form button {
+          height: 100%;
+          width: 100%;
+          font-size: 1rem;
+        }
+        
+        .search-form button svg {
+          width: 24px;
+          height: 24px;
+        }
+        
+        .search-body {
+          margin-bottom: 1.5rem;
+        }
+        
+        .search-body .search-filters .filter-list {
+          margin-bottom: 1.3rem;
+        }
+        
+        .search-body .search-filters .filter-list .title {
+          color: #3c4142;
+          margin-bottom: 1rem;
+        }
+        
+        .search-body .search-filters .filter-list .filter-text {
+          color: #727686;
+        }
+        
+        .search-body .search-result .result-header {
+          margin-bottom: 2rem;
+        }
+        
+        .search-body .search-result .result-header .records {
+          color: #3c4142;
+        }
+        
+        .search-body .search-result .result-header .result-actions {
+          text-align: right;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        
+        .search-body .search-result .result-header .result-actions .result-sorting {
+          display: flex;
+          align-items: center;
+        }
+        
+        .search-body .search-result .result-header .result-actions .result-sorting span {
+          flex-shrink: 0;
+          font-size: 0.8125rem;
+        }
+        
+        .search-body .search-result .result-header .result-actions .result-sorting select {
+          color: #68CBD7;
+        }
+        
+        .search-body .search-result .result-header .result-actions .result-sorting select option {
+          color: #3c4142;
+        }
+        
+        @media (min-width: 768px) and (max-width: 991.98px) {
+          .search-body .search-filters {
+            display: flex;
+          }
+          .search-body .search-filters .filter-list {
+            margin-right: 1rem;
+          }
+        }
+        
+        .card-margin {
+            margin-bottom: 1.875rem;
+        }
+        
+        @media (min-width: 992px){
+        .col-lg-2 {
+            flex: 0 0 16.66667%;
+            max-width: 16.66667%;
+        }
+        }
+        
+        .card-margin {
+            margin-bottom: 1.875rem;
+        }
+        .card {
+            border: 0;
+            box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+            -webkit-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+            -moz-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+            -ms-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+        }
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #ffffff;
+            background-clip: border-box;
+            border: 1px solid #e6e4e9;
+            border-radius: 8px;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </style>
+        
+        <script type="text/javascript">
+        
+        </script>
+        </body>
+        </html>
+
+    <!-- Jquery JS-->
+    <script src="../assets/vendor4/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="../assets/vendor4/select2/select2.min.js"></script>
+    <script src="../assets/vendor4/datepicker/moment.min.js"></script>
+    <script src="../assets/vendor4/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="../assets/js4/global.js"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->
